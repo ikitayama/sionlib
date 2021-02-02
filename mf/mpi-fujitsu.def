@@ -1,0 +1,7 @@
+MPIENABLE = 1
+MPICC     = mpifcc
+MPICXX    = mpiFCC
+MPIF77    = mpifrt
+MPIF90    = mpifrt
+MPILIB    =
+MPITESTRUN = mpirun -np 4 --oversubscribe
