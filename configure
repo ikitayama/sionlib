@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 # BUILD system (adapted from SCALASCA build system, http://www.scalasca.org)
 
@@ -380,13 +380,13 @@ case ${SYSTEM} in
            MD=${MDB}
            MF=Makefile.cross
            ISKCOMPUTER="yes"
-         elif [ ${CPU} = "x86_64" -a -d /opt/FJSVxtclanga/ ]
-         then
-           CFGMSG="Fugaku"
-           MDF=Makefile.defs.fugaku-fe
-           MDB=Makefile.defs.fugaku-be
-           MD=${MDB}
-           MF=Makefile.cross
+         #elif [ ${CPU} = "x86_64" -a -d /opt/FJSVxtclanga/ ]
+         #then
+         #  CFGMSG="Fugaku"
+         #  MDF=Makefile.defs.fugaku-fe
+         #  MDB=Makefile.defs.fugaku-be
+         #  MD=${MDB}
+         #  MF=Makefile.cross
          elif [ ${CPU} = "x86_64" -a -d /opt/FJSVfxlang ]
          then
            CFGMSG="Fujitsu FX10"
@@ -444,6 +444,9 @@ case ${SYSTEM} in
 
            CMSG="Linux cluster with"
            case ${COMP} in
+             fujitsu) CFGMSG="${CMSG} Fujitsu compilers and ${MPI} MPI"
+                  MD=Makefile.defs.linux-fujitsu
+                  ;;
              pgi) CFGMSG="${CMSG} PGI compilers and ${MPI} MPI"
                   MD=Makefile.defs.linux-pgi
                   ;;
