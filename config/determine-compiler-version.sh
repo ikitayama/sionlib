@@ -3,6 +3,8 @@
 COMPVER="?.?"
 
 case ${COMP} in
+  fujitsu) COMPVER=4.3.1
+       ;;
   pgi)  COMPVER=`pgcc -V 2>&1 | grep "pgcc" | cut -d\  -f 2`
        ;;
   intel) COMPVER=`icc -V 2>&1 | grep ^Intel | sed -e 's/^.*Version //' \
